@@ -1,13 +1,18 @@
-import Home from "./pages/Home";
-
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
+import Home from "./components/Home";
+import LoginForm from "./components/LoginForm";
+import Contact from "./components/Contact";
+import AddContentForm from "./components/AddContentForm";
 
 function App() {
   return (
-    <div className="App">
-      <Home />
-      <p>coucou</p>
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/administrateur" element={<AddContentForm />} />
+      <Route path="/connexion" element={<LoginForm />} />
+      <Route path="/contact" element={<Contact />} />
+    </Routes>
   );
 }
 

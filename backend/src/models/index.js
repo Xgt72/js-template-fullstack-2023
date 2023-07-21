@@ -29,10 +29,13 @@ pool.getConnection().catch(() => {
 
 const models = {};
 
-const ItemManager = require("./ItemManager");
+const UserManager = require("./UserManager");
+const SportManager = require("./SportManager");
 
-models.item = new ItemManager();
-models.item.setDatabase(pool);
+models.user = new UserManager();
+models.user.setDatabase(pool);
+models.sport = new SportManager();
+models.sport.setDatabase(pool);
 
 // bonus: use a proxy to personalize error message,
 // when asking for a non existing model
