@@ -97,16 +97,16 @@ const destroy = (req, res) => {
 const login = (req, res) => {
   const { email, password } = req.body;
 
-  models.employe
+  models.user
     .findByEmail(email)
     .then(([users]) => {
       if (users.length === 0) {
         res.sendStatus(404);
-      } else if (!argon2.verifySync(users[0].hashedPassword, password)) {
+      } else if (users[0].password !== password) {
         res.sendStatus(404);
       } else {
         const user = { ...users[0] };
-        delete user.hashedPassword;
+        delete user.password;
         res
           .cookie("token", "my super token", {
             httpOnly: true,

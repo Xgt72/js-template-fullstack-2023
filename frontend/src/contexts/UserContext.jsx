@@ -45,7 +45,6 @@ const UserContextProvider = ({ children }) => {
         })
         .catch((err) => {
           console.error(err);
-          alert("Error to login please try again !");
         });
     }
   }, []);
@@ -60,36 +59,3 @@ const useUserContext = () => useContext(UserContext);
 UserContextProvider.propTypes = { children: PropTypes.element.isRequired };
 
 export { UserContextProvider, useUserContext };
-
-// import { createContext, useContext, useReducer } from "react";
-// import PropTypes from "prop-types";
-
-// const UserContext = createContext();
-
-// export default UserContext;
-
-// function UserContextProvider({ children, reducer, initialState }) {
-//   return (
-//     <UserContextProvider value={useReducer(reducer, initialState)}>
-//       {children}
-//     </UserContextProvider>
-//   );
-// }
-
-// const useUserContext = () => useContext(UserContext);
-
-// export { UserContextProvider, useUserContext };
-
-// UserContextProvider.propTypes = {
-//   children: PropTypes.element.isRequired,
-//   reducer: PropTypes.func.isRequired,
-//   initialState: PropTypes.shape({
-//     user: PropTypes.shape({
-//       id: PropTypes.number.isRequired,
-//       firstname: PropTypes.string.isRequired,
-//       lastname: PropTypes.string.isRequired,
-//       email: PropTypes.string.isRequired,
-//       role_id: PropTypes.number.isRequired,
-//     }),
-//   }).isRequired,
-// };

@@ -14,13 +14,16 @@ function Home() {
           <img
             src={logo}
             alt="Logo"
-            className="w-14 h-14 md:w-32 md:h-32 rounded-xl"
+            className="w-12 h-12 md:w-32 md:h-32 rounded-xl"
           />
         </div>
         <div className="text-center md:text-left">
-          <h1 className="mt-5 text-3xl md:text-7xl text-red-500 font-bold m-0 p-0">
+          <h1 className="mt-5 text-3xl md:text-7xl text-red-500 font-bold m-3 border-4 border-red-500 md:p-4">
             Fitness Center
           </h1>
+        </div>
+        <div className="text-white text-sm mr-2 md:text-base bg-red-500 rounded-full px-1 py-0.5 md:px-5 md:py-3 mt-5 hover:bg-white hover:text-red-500">
+          <Link to="/administrateur">Admin</Link>
         </div>
         <div className="text-white text-sm md:text-base bg-red-500 rounded-full px-1 py-0.5 md:px-5 md:py-3 mt-5 hover:bg-white hover:text-red-500">
           <Link to="/connexion">Connexion</Link>

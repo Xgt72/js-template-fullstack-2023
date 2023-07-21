@@ -5,7 +5,8 @@ import { useUserContext } from "../contexts/UserContext";
 import logo from "../assets/logo/fitness-center.jpg";
 
 function LoginForm() {
-  const dispatch = useUserContext()[1];
+  const { idUser, setIdUser, idAdmin, setIdAdmin, role, setRole } =
+    useUserContext();
   const navigate = useNavigate();
   const [passwordIsVisible, setPasswordIsVisible] = useState(false);
   const [email, setEmail] = useState("");
@@ -25,7 +26,7 @@ function LoginForm() {
     if (!email || !password) {
       alert("You must provide an email and a password!!!!");
     } else {
-      fetch(`${import.meta.env.VITE_BACKEND_URL}/api/employes/login`, {
+      fetch(`${import.meta.env.VITE_BACKEND_URL}/api/users/login`, {
         method: "POST",
         credentials: "include",
         headers: {
@@ -39,8 +40,9 @@ function LoginForm() {
         .then((res) => res.json())
         .then((data) => {
           console.warn(data);
-          dispatch({ type: "SET_USER", payload: data });
-          navigate(`/accueil`);
+          setIdUser(data.id);
+          setRole(data.role);
+          navigate(`/`);
         })
         .catch(() => {
           alert("Error to login, please try again!!!");

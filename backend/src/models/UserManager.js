@@ -32,7 +32,7 @@ class UserManager extends AbstractManager {
   }
 
   findByEmail(mail) {
-    return this.database.query(`SELECT * FROM  ${this.table} WHERE mail=?`, [
+    return this.database.query(`SELECT * FROM  ${this.table} WHERE email=?`, [
       mail,
     ]);
   }
